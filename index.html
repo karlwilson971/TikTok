@@ -3,1647 +3,534 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TikTok Commerce — 5-Specialist AI Agent Command Center</title>
-  <meta name="description" content="Build, launch, operate, and continuously optimize a content-first TikTok Shop brand with 5 specialized AI agents.">
+  <title>PERFORMANCE LAB — Train With Purpose. Fuel With Purpose.</title>
+  <meta name="description" content="Premium sports nutrition and AI-powered performance discovery. 100% transparent dosages, third-party tested, and personalized routines.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  
-  <!-- Chart.js for analytics -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Main Stylesheet -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="app-container">
-    
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-      <div class="brand-header">
-        <div class="brand-badge">
-          <span class="pulse-dot"></span>
-          <span class="badge-text">AI OPERATING SYSTEM</span>
-        </div>
-        <div class="brand-title">
-          <div class="logo-icon">
-            <i data-lucide="zap"></i>
-          </div>
-          <div>
-            <h1>TikTok Commerce</h1>
-            <span class="subtext">5 Specialist AI Agents</span>
-          </div>
-        </div>
-      </div>
 
-      <nav class="nav-menu">
-        <button class="nav-item active" data-tab="dashboard">
-          <i data-lucide="layout-grid"></i>
-          <span>Team Command & Flywheel</span>
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <a class="nav-brand" onclick="switchView('storefront')">
+        <div class="brand-logo-mark">PL</div>
+        <div class="brand-title-wrap">
+          <h1>PERFORMANCE LAB</h1>
+          <span class="brand-tagline">TRAIN & FUEL WITH PURPOSE</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <button class="nav-btn active" data-view="storefront" onclick="switchView('storefront')">
+          <i data-lucide="store"></i> <span>Shop Products</span>
         </button>
-        <button class="nav-item" data-tab="product-intelligence">
-          <i data-lucide="search-check"></i>
-          <span>Product Intelligence</span>
-          <span class="nav-pill">100-Pt Scorecard</span>
+        <button class="nav-btn" data-view="quiz" onclick="startProfileQuiz()">
+          <i data-lucide="sparkles" class="text-mint"></i> <span>Build Profile</span>
         </button>
-        <button class="nav-item" data-tab="brand-strategy">
-          <i data-lucide="sparkles"></i>
-          <span>Brand & Content Strategy</span>
-          <span class="nav-pill">70/20/10 Ratio</span>
+        <button class="nav-btn" data-view="dashboard" onclick="switchView('dashboard')">
+          <i data-lucide="layout-dashboard"></i> <span>My Routine & Lab</span>
         </button>
-        <button class="nav-item" data-tab="creative-production">
-          <i data-lucide="clapperboard"></i>
-          <span>Creative Production</span>
-          <span class="nav-pill">30-Day Pipeline</span>
+        <button class="nav-btn" data-view="academy" onclick="switchView('academy')">
+          <i data-lucide="book-open"></i> <span>Academy</span>
         </button>
-        <button class="nav-item" data-tab="shop-growth">
-          <i data-lucide="trending-up"></i>
-          <span>Shop Growth & Funnel</span>
-          <span class="nav-pill">Agent 04</span>
+        <button class="nav-btn" data-view="batch-verify" onclick="switchView('batch-verify')">
+          <i data-lucide="shield-check"></i> <span>Verify Batch CoA</span>
         </button>
-        <button class="nav-item" data-tab="performance-qa">
-          <i data-lucide="shield-check"></i>
-          <span>Performance & QA</span>
-          <span class="nav-pill">Agent 05</span>
+        <button class="nav-btn" data-view="creator-portal" onclick="switchView('creator-portal')">
+          <i data-lucide="users"></i> <span>Athletes</span>
         </button>
-        <button class="nav-item" data-tab="agent-workbench">
-          <i data-lucide="bot"></i>
-          <span>Specialist Agent Workbench</span>
-          <span class="nav-counter">5</span>
-        </button>
-        <button class="nav-item" data-tab="hook-lab">
-          <i data-lucide="video"></i>
-          <span>Viral Hook & Script Lab</span>
-          <span class="nav-pill">9 Pillars</span>
-        </button>
-        <button class="nav-item" data-tab="margin-calculator">
-          <i data-lucide="calculator"></i>
-          <span>Shop Economics & Margins</span>
-        </button>
-        <button class="nav-item" data-tab="creator-crm">
-          <i data-lucide="users"></i>
-          <span>Creator & Affiliate CRM</span>
-        </button>
-        <button class="nav-item" data-tab="retention-unboxing">
-          <i data-lucide="package-check"></i>
-          <span>Comments & Unboxing Studio</span>
-        </button>
-        <button class="nav-item" data-tab="vault-docs">
-          <i data-lucide="book-open"></i>
-          <span>Playbooks & SOP Vault</span>
+        <button class="nav-btn" data-view="operations-hub" onclick="switchView('operations-hub')">
+          <i data-lucide="cpu"></i> <span>6-Agent AI Ops</span>
         </button>
       </nav>
 
-      <div class="sidebar-footer">
-        <div class="brand-principle-card">
-          <div class="principle-badge"><i data-lucide="flame"></i> Core Principle</div>
-          <p>"Content comes first. The product naturally exists inside the story."</p>
-        </div>
-        <div class="system-status">
-          <span class="status-indicator online"></span>
-          <span>All 5 AI Agents Synchronized</span>
-        </div>
+      <div class="nav-actions">
+        <button class="btn-profile-cta" onclick="startProfileQuiz()">
+          <i data-lucide="sparkles"></i> Build My Profile
+        </button>
+        <button class="cart-icon-btn" onclick="openCartModal()">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-badge" id="cart-counter">0</span>
+        </button>
       </div>
-    </aside>
+    </header>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-      
-      <!-- Top Bar -->
-      <header class="top-bar">
-        <div class="breadcrumb">
-          <span class="text-muted">TikTok Commerce OS</span>
-          <span class="separator">/</span>
-          <span id="current-section-title" class="current-page">Team Command & Flywheel</span>
+    <!-- Main Viewport -->
+    <main class="main-viewport">
+
+      <!-- ================================================================ -->
+      <!-- VIEW 1: STOREFRONT & HOMEPAGE                                    -->
+      <!-- ================================================================ -->
+      <section id="view-storefront" class="view-pane active">
+        <!-- Hero Section -->
+        <div class="hero-section">
+          <div class="hero-pill-badge">
+            <i data-lucide="shield-alert"></i>
+            <span>RADICAL TRANSPARENCY &bull; ZERO PROPRIETARY BLENDS</span>
+          </div>
+          <h1 class="hero-title">
+            TRAIN WITH PURPOSE.<br>
+            <span class="gradient-text">FUEL WITH PURPOSE.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Your training isn't generic. Your nutrition shouldn't feel generic either. Performance Lab eliminates supplement confusion with clinically validated, 100% disclosed formulations and personalized routines.
+          </p>
+          <div class="hero-cta-group">
+            <button class="btn-hero-primary" onclick="startProfileQuiz()">
+              <i data-lucide="sparkles"></i> BUILD MY PERFORMANCE PROFILE
+            </button>
+            <button class="btn-hero-secondary" onclick="scrollToSection('catalog-section')">
+              SHOP PERFORMANCE CATALOG &darr;
+            </button>
+          </div>
+
+          <div class="hero-features-bar">
+            <div class="hero-feature-item">
+              <i data-lucide="check-circle-2"></i>
+              <span>100% Disclosed Clinical Dosages</span>
+            </div>
+            <div class="hero-feature-item">
+              <i data-lucide="shield-check"></i>
+              <span>Third-Party Informed-Sport Tested</span>
+            </div>
+            <div class="hero-feature-item">
+              <i data-lucide="ban"></i>
+              <span>Zero Artificial Dyes or Melatonin</span>
+            </div>
+            <div class="hero-feature-item">
+              <i data-lucide="repeat"></i>
+              <span>1-Click Smart Replenishment</span>
+            </div>
+          </div>
         </div>
 
-        <div class="top-actions">
-          <div class="quick-stats-pill">
-            <span class="label">Blended MER:</span>
-            <span class="value text-cyan">4.3x</span>
+        <!-- How It Works Section -->
+        <div class="section-wrap">
+          <div class="section-header">
+            <div>
+              <h2>How Performance Lab Works</h2>
+              <p>From personalized discovery to daily routine and automated replenishment.</p>
+            </div>
           </div>
-          <div class="quick-stats-pill">
-            <span class="label">Shop Health:</span>
-            <span class="value text-green">100% (Tier 1)</span>
+          <div class="timeline-grid">
+            <div class="timeline-node">
+              <span class="time-slot-label">Step 01</span>
+              <div class="time-slot-action">1. Profile Diagnostic</div>
+              <p class="time-slot-sub">Complete a 2-minute non-sensitive training questionnaire.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">Step 02</span>
+              <div class="time-slot-action">2. Rule-Based AI Stack</div>
+              <p class="time-slot-sub">Receive Core, Optional, and actively <strong>Not Necessary</strong> product guidance.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">Step 03</span>
+              <div class="time-slot-action">3. 24h Routine Integration</div>
+              <p class="time-slot-sub">Exact timing protocol embedded directly into your morning and training windows.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">Step 04</span>
+              <div class="time-slot-action">4. Smart Depletion Refill</div>
+              <p class="time-slot-sub">Automated delivery calibrated precisely to your weekly training frequency.</p>
+            </div>
           </div>
-          <button class="btn-primary" id="btn-quick-generate">
-            <i data-lucide="plus-circle"></i>
-            <span>Run Multi-Agent Sprint</span>
+        </div>
+
+        <!-- Best Sellers Product Catalog Section -->
+        <div class="section-wrap" id="catalog-section">
+          <div class="section-header">
+            <div>
+              <h2>Launch Performance Catalog</h2>
+              <p>A deliberately focused range where every single SKU has an undeniable physiological purpose.</p>
+            </div>
+            <button class="btn-quiz-next" onclick="startProfileQuiz()">
+              <i data-lucide="sparkles"></i> Match to My Routine
+            </button>
+          </div>
+          <div class="products-grid" id="homepage-products-grid">
+            <!-- Dynamically populated from data.js -->
+          </div>
+        </div>
+
+        <!-- Goal Bundles Section -->
+        <div class="section-wrap">
+          <div class="section-header">
+            <div>
+              <h2>Pre-Configured Goal Systems</h2>
+              <p>Synergistic stacks engineered to work together with built-in 15% system savings.</p>
+            </div>
+          </div>
+          <div class="products-grid" id="homepage-bundles-grid">
+            <!-- Dynamically populated from data.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW 2: PERFORMANCE PROFILE ONBOARDING QUIZ                      -->
+      <!-- ================================================================ -->
+      <section id="view-quiz" class="view-pane">
+        <div class="quiz-container">
+          <div class="quiz-progress-bar-wrap">
+            <div class="quiz-progress-fill" id="quiz-progress-bar" style="width: 14%;"></div>
+          </div>
+          <div class="quiz-step-header">
+            <span class="quiz-step-num" id="quiz-step-indicator">Question 1 of 7</span>
+            <h2 class="quiz-question-title" id="quiz-question-text">What is your primary training objective right now?</h2>
+            <p class="quiz-question-sub" id="quiz-question-sub">Select the primary focus guiding your physical efforts.</p>
+          </div>
+          <div class="quiz-options-grid" id="quiz-options-container">
+            <!-- Options dynamically rendered by app.js -->
+          </div>
+          <div class="quiz-nav-row">
+            <button class="btn-quiz-back" id="btn-quiz-prev" onclick="handleQuizPrev()">Back</button>
+            <button class="btn-quiz-next" id="btn-quiz-next" onclick="handleQuizNext()">
+              Next Step &rarr;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW 3: AI RECOMMENDATION & STACK BUILDER RESULT                 -->
+      <!-- ================================================================ -->
+      <section id="view-stack-result" class="view-pane">
+        <div class="stack-hero-banner">
+          <div class="stack-title-wrap">
+            <div class="hero-pill-badge">
+              <i data-lucide="check-circle-2"></i>
+              <span>PROFILE GENERATED &bull; RULES-BASED AI CONSTRAINED</span>
+            </div>
+            <h2 id="rec-profile-title">YOUR PERFORMANCE SYSTEM: HYBRID STAMINA</h2>
+            <p>Based on your training frequency and goals, here is your customized protocol divided into Core, Training, and what you <strong>DO NOT</strong> need.</p>
+          </div>
+          <button class="btn-hero-primary" onclick="applyStackToDashboard()">
+            <i data-lucide="calendar"></i> Activate Routine in Dashboard
           </button>
         </div>
-      </header>
 
-      <!-- TAB 1: DASHBOARD & COMMERCIAL FLYWHEEL -->
-      <section id="tab-dashboard" class="tab-pane active">
-        <!-- Hero Banner -->
-        <div class="hero-banner">
-          <div class="hero-content">
-            <div class="tag-pill"><i data-lucide="trending-up"></i> Content-Led TikTok Shop Growth</div>
-            <h2>Content-First Ecommerce Flywheel</h2>
-            <p>Develop an audience with authentic entertainment and value, convert viewers natively inside TikTok Shop, and scale exponentially through creators and Spark Ads.</p>
+        <!-- 1. Foundation Tier -->
+        <div class="stack-tier-section">
+          <div class="stack-tier-header">
+            <i data-lucide="layers" class="tier-foundation"></i>
+            <h3 class="tier-foundation">1. Foundation (Everyday Core Routine)</h3>
           </div>
-          <div class="hero-metrics">
-            <div class="metric-card">
-              <span class="metric-label">Weekly Organic Reach</span>
-              <span class="metric-val text-neon">284.5K</span>
-              <span class="metric-trend text-green"><i data-lucide="arrow-up-right"></i> +38.2%</span>
-            </div>
-            <div class="metric-card">
-              <span class="metric-label">Active TikTok Affiliates</span>
-              <span class="metric-val text-cyan">64</span>
-              <span class="metric-trend text-green"><i data-lucide="arrow-up-right"></i> +14 new</span>
-            </div>
-            <div class="metric-card">
-              <span class="metric-label">Shop Conversion Rate</span>
-              <span class="metric-val text-pink">3.42%</span>
-              <span class="metric-trend text-green"><i data-lucide="arrow-up-right"></i> +0.6%</span>
-            </div>
-          </div>
+          <div id="rec-foundation-container"></div>
         </div>
 
-        <!-- Interactive Commercial Flywheel Diagram -->
-        <div class="content-card">
-          <div class="card-header">
-            <div>
-              <h3><i data-lucide="refresh-cw" class="icon-spin text-pink"></i> The TikTok Commercial Flywheel Engine</h3>
-              <p class="text-muted">Click any stage below to inspect real-time agent handoffs, tactical SOPs, and operating metrics.</p>
-            </div>
-            <span class="badge badge-glow">Interactive System</span>
+        <!-- 2. Training Tier -->
+        <div class="stack-tier-section">
+          <div class="stack-tier-header">
+            <i data-lucide="zap" class="tier-training"></i>
+            <h3 class="tier-training">2. Training Window (Pre & Intra Fuel)</h3>
           </div>
-          
-          <div class="flywheel-grid">
-            <div class="flywheel-step active" data-step="1">
-              <div class="step-num">01</div>
-              <div class="step-icon"><i data-lucide="video"></i></div>
-              <h4>TikTok Organic Content</h4>
-              <p>Emotion-led, non-catalog storytelling with 3s hooks.</p>
-              <span class="agent-tag agent-hookmaster">BrandCraft</span>
-            </div>
-            <div class="flywheel-arrow"><i data-lucide="arrow-right"></i></div>
-            
-            <div class="flywheel-step" data-step="2">
-              <div class="step-num">02</div>
-              <div class="step-icon"><i data-lucide="message-circle"></i></div>
-              <h4>Audience & Community</h4>
-              <p>Comment conversations & video reply loops.</p>
-              <span class="agent-tag agent-retention">RetentionLoop</span>
-            </div>
-            <div class="flywheel-arrow"><i data-lucide="arrow-right"></i></div>
-
-            <div class="flywheel-step" data-step="3">
-              <div class="step-num">03</div>
-              <div class="step-icon"><i data-lucide="shopping-bag"></i></div>
-              <h4>Product Discovery & Shop</h4>
-              <p>Yellow cart integration & high-converting bundles.</p>
-              <span class="agent-tag agent-shopengine">ShopEngine</span>
-            </div>
-            <div class="flywheel-arrow"><i data-lucide="arrow-right"></i></div>
-
-            <div class="flywheel-step" data-step="4">
-              <div class="step-num">04</div>
-              <div class="step-icon"><i data-lucide="star"></i></div>
-              <h4>Unboxing & UGC Reviews</h4>
-              <p>VIP insert cards & customer review incentives.</p>
-              <span class="agent-tag agent-retention">RetentionLoop</span>
-            </div>
-            <div class="flywheel-arrow"><i data-lucide="arrow-right"></i></div>
-
-            <div class="flywheel-step" data-step="5">
-              <div class="step-num">05</div>
-              <div class="step-icon"><i data-lucide="share-2"></i></div>
-              <h4>Creator & Affiliate Scale</h4>
-              <p>Targeted seeding & open 20% affiliate tiers.</p>
-              <span class="agent-tag agent-creatorscale">CreatorScale</span>
-            </div>
-            <div class="flywheel-arrow"><i data-lucide="arrow-right"></i></div>
-
-            <div class="flywheel-step" data-step="6">
-              <div class="step-num">06</div>
-              <div class="step-icon"><i data-lucide="rocket"></i></div>
-              <h4>Spark Ads & Paid Boost</h4>
-              <p>Scaling organic & UGC winners at ROAS >2.8x.</p>
-              <span class="agent-tag agent-growthpulse">GrowthPulse</span>
-            </div>
-          </div>
-
-          <!-- Active Step Inspector Box -->
-          <div class="flywheel-inspector" id="flywheel-inspector">
-            <div class="inspector-header">
-              <div class="inspector-title">
-                <span class="step-badge" id="insp-badge">STAGE 01</span>
-                <h4 id="insp-title">TikTok Organic Content Engine</h4>
-              </div>
-              <div class="inspector-agents" id="insp-agents">
-                <span class="agent-pill">Lead: BrandCraft</span>
-              </div>
-            </div>
-            <div class="inspector-body">
-              <div class="insp-col">
-                <h5><i data-lucide="check-circle-2" class="text-green"></i> Core Objectives</h5>
-                <ul id="insp-objectives">
-                  <li>Capture immediate attention in the first 2.5 seconds using visual/verbal hooks.</li>
-                  <li>Evoke at least one of the 9 Emotion Pillars (Curiosity, Empathy, Entertainment).</li>
-                  <li>Embed the product naturally as an indispensable tool, never a dry catalog pitch.</li>
-                </ul>
-              </div>
-              <div class="insp-col">
-                <h5><i data-lucide="workflow" class="text-cyan"></i> Downstream Agent Handoff</h5>
-                <p id="insp-handoff" class="text-secondary">BrandCraft delivers 5 daily video concepts → GrowthPulse scans 24h retention → CreatorScale packages winning briefs for affiliates.</p>
-              </div>
-              <div class="insp-col">
-                <h5><i data-lucide="gauge" class="text-pink"></i> Key Metrics & SLAs</h5>
-                <div class="insp-metrics-grid" id="insp-metrics">
-                  <div class="metric-mini"><span>Avg Watch Time</span><strong>> 18.5s</strong></div>
-                  <div class="metric-mini"><span>Hook 2s Retention</span><strong>> 68%</strong></div>
-                  <div class="metric-mini"><span>Yellow Cart CTR</span><strong>> 2.4%</strong></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div id="rec-training-container"></div>
         </div>
 
-        <!-- The 5 Specialist AI Agents Roster -->
-        <div class="section-title-row">
+        <!-- 3. Recovery Tier -->
+        <div class="stack-tier-section">
+          <div class="stack-tier-header">
+            <i data-lucide="moon" class="tier-recovery"></i>
+            <h3 class="tier-recovery">3. Recovery (Post-Workout & Sleep Repair)</h3>
+          </div>
+          <div id="rec-recovery-container"></div>
+        </div>
+
+        <!-- 4. Not Necessary Trust Section -->
+        <div class="stack-tier-section">
+          <div class="stack-tier-header">
+            <i data-lucide="ban" class="tier-not-necessary"></i>
+            <h3 class="tier-not-necessary">4. What You Do NOT Need (Active Trust De-selection)</h3>
+          </div>
+          <div id="rec-not-necessary-container"></div>
+        </div>
+
+        <!-- Sticky Stack Checkout Summary Bar -->
+        <div class="stack-checkout-bar">
           <div>
-            <h3>The 5 Specialist AI Agents</h3>
-            <p class="text-muted">Dedicated roles synchronizing content, commerce, creators, performance, and retention.</p>
-          </div>
-          <button class="btn-secondary" onclick="switchTab('agent-workbench')">Open Agent Workbench &rarr;</button>
-        </div>
-
-        <div class="agents-roster-grid">
-          <!-- Agent 1: MarketIntel -->
-          <div class="agent-roster-card" onclick="switchTab('product-intelligence')">
-            <div class="card-accent accent-cyan"></div>
-            <div class="agent-top">
-              <div class="agent-avatar cyan-glow">
-                <i data-lucide="search-check"></i>
-              </div>
-              <div class="agent-meta">
-                <span class="agent-role">AGENT 01</span>
-                <h4>MarketIntel</h4>
-                <span class="agent-title">Product & Market Intelligence</span>
-              </div>
-            </div>
-            <p class="agent-desc">Scores products 0-100 on visuality, margin, and content runway across Hero, Supporting, Repeat, and Trend tiers.</p>
-            <div class="agent-stats">
-              <div><span>Vetted Products:</span> <strong>6 Shortlisted</strong></div>
-              <div><span>Avg Portfolio Margin:</span> <strong class="text-cyan">81.4%</strong></div>
-            </div>
-            <div class="agent-footer-btn">Launch Scorecard &rarr;</div>
-          </div>
-
-          <!-- Agent 2: BrandCraft -->
-          <div class="agent-roster-card" onclick="switchTab('brand-strategy')">
-            <div class="card-accent accent-pink"></div>
-            <div class="agent-top">
-              <div class="agent-avatar pink-glow">
-                <i data-lucide="sparkles"></i>
-              </div>
-              <div class="agent-meta">
-                <span class="agent-role">AGENT 02</span>
-                <h4>BrandCraft</h4>
-                <span class="agent-title">Brand & Content Strategy</span>
-              </div>
-            </div>
-            <p class="agent-desc">Makes people WANT to follow with 70/20/10 ratio, 6 content pillars, and 5-part retention scripts.</p>
-            <div class="agent-stats">
-              <div><span>Content Mix:</span> <strong>70% Value / 20% Integ / 10% Com</strong></div>
-              <div><span>Content Pillars:</span> <strong class="text-pink">6 Pillars</strong></div>
-            </div>
-            <div class="agent-footer-btn">Open Strategy Studio &rarr;</div>
-          </div>
-
-          <!-- Agent 3: ShopEngine -->
-          <div class="agent-roster-card" onclick="openAgent('shopengine')">
-            <div class="card-accent accent-yellow"></div>
-            <div class="agent-top">
-              <div class="agent-avatar yellow-glow">
-                <i data-lucide="shopping-cart"></i>
-              </div>
-              <div class="agent-meta">
-                <span class="agent-role">AGENT 03</span>
-                <h4>ShopEngine</h4>
-                <span class="agent-title">Shop Merchandiser & Strategist</span>
-              </div>
-            </div>
-            <p class="agent-desc">Architects unit economics, 7-slide showcase carousels, bundle tiers, and 100% SLA shop compliance.</p>
-            <div class="agent-stats">
-              <div><span>Gross Margin:</span> <strong class="text-yellow">78.6%</strong></div>
-              <div><span>ODR SLA:</span> <strong class="text-green">0.12%</strong></div>
-            </div>
-            <div class="agent-footer-btn">Launch Simulator &rarr;</div>
-          </div>
-
-          <!-- Agent 4: CreatorScale -->
-          <div class="agent-roster-card" onclick="openAgent('creatorscale')">
-            <div class="card-accent accent-purple"></div>
-            <div class="agent-top">
-              <div class="agent-avatar purple-glow">
-                <i data-lucide="users"></i>
-              </div>
-              <div class="agent-meta">
-                <span class="agent-role">AGENT 04</span>
-                <h4>CreatorScale</h4>
-                <span class="agent-title">Creator & Affiliate Scaler</span>
-              </div>
-            </div>
-            <p class="agent-desc">Automates 50+ daily creator outreach pitches, sample fulfillment, and manages the 3-tier commission matrix.</p>
-            <div class="agent-stats">
-              <div><span>Active Affiliates:</span> <strong class="text-purple">64</strong></div>
-              <div><span>Monthly Creator GMV:</span> <strong>$42,800</strong></div>
-            </div>
-            <div class="agent-footer-btn">Launch Simulator &rarr;</div>
-          </div>
-
-          <!-- Agent 5: RetentionLoop -->
-          <div class="agent-roster-card" onclick="openAgent('retentionloop')">
-            <div class="card-accent accent-green"></div>
-            <div class="agent-top">
-              <div class="agent-avatar green-glow">
-                <i data-lucide="message-square-heart"></i>
-              </div>
-              <div class="agent-meta">
-                <span class="agent-role">AGENT 05</span>
-                <h4>RetentionLoop</h4>
-                <span class="agent-title">Retention & Community Lead</span>
-              </div>
-            </div>
-            <p class="agent-desc">Converts comment objections into reply-videos, crafts VIP unboxing insert cards, and fuels 5-star reviews.</p>
-            <div class="agent-stats">
-              <div><span>5-Star Review %:</span> <strong class="text-green">97.8%</strong></div>
-              <div><span>Comment Conversion:</span> <strong>14.2%</strong></div>
-            </div>
-            <div class="agent-footer-btn">Launch Simulator &rarr;</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TAB: PRODUCT & MARKET INTELLIGENCE (AGENT 1) -->
-      <section id="tab-product-intelligence" class="tab-pane">
-        <div class="section-hero">
-          <div>
-            <h2>Product & Market Intelligence Engine</h2>
-            <p>Score potential products 0–100 across 11 weighted dimensions. Prioritize sustainable content brands over temporary gimmicks.</p>
-          </div>
-          <div class="quick-stats-pill">
-            <span class="label">Catalog Model:</span>
-            <span class="value text-cyan">4-Tier Balanced Portfolio</span>
-          </div>
-        </div>
-
-        <!-- 100-Point Scorecard Calculator Card -->
-        <div class="content-card" style="border-color: rgba(37, 244, 238, 0.3);">
-          <div class="card-header">
-            <div>
-              <h3><i data-lucide="calculator" class="text-cyan"></i> The 100-Point Product Scorecard Simulator</h3>
-              <p class="text-muted">Adjust any of the 11 weighted criteria below to evaluate a candidate product's TikTok commerce viability.</p>
-            </div>
-            <div style="display: flex; gap: 10px; align-items: center;">
-              <select id="scorecard-preset-select" class="form-select" style="min-width: 260px;">
-                <option value="hero_apex_tray">Preset: ApexGrip EDC Tray (Score: 93)</option>
-                <option value="hero_pulse_tumbler">Preset: PulseFlow Tumbler (Score: 91)</option>
-                <option value="supp_apex_sleeve">Preset: ApexShield Sleeve (Score: 87)</option>
-                <option value="repeat_barista_pods">Preset: Barista Flavor Pods (Score: 89)</option>
-                <option value="trend_cyber_clock">Preset: Cyberpunk Clock (Score: 82)</option>
-                <option value="custom">-- Custom Evaluation --</option>
-              </select>
+            <span class="text-xs text-muted uppercase font-bold">Your Custom Performance System</span>
+            <div class="flex-center gap-12 mt-2">
+              <span class="stack-total-val" id="stack-total-price">$84.99 / mo</span>
+              <span class="stack-savings-badge"><i data-lucide="sparkles"></i> 15% Stack Bundle Discount</span>
             </div>
           </div>
-
-          <div class="scorecard-layout-grid">
-            <!-- Left: Sliders Grid -->
-            <div class="scorecard-sliders-col" id="scorecard-sliders-container">
-              <!-- Dynamically populated from data.js -->
-            </div>
-
-            <!-- Right: Live Score Gauge & Viability Card -->
-            <div class="scorecard-result-col">
-              <div class="score-gauge-box">
-                <span class="score-label">TIKTOK COMMERCE SCORE</span>
-                <div class="big-score-display">
-                  <span id="scorecard-total-num" class="text-green">93</span>
-                  <span class="score-max">/ 100</span>
-                </div>
-                <div class="score-tier-badge" id="scorecard-tier-badge">
-                  <i data-lucide="check-circle"></i> S-Tier (Immediate Greenlight)
-                </div>
-              </div>
-
-              <div class="score-verdict-card">
-                <h4><i data-lucide="shield-alert" class="text-yellow"></i> Viability Analysis & Strategic Role</h4>
-                <p id="scorecard-verdict-text" class="text-secondary">
-                  <strong>Role: HERO PRODUCT.</strong> Outstanding 2-second visual hook potential with high gross margin (78.6%) and zero sizing/return risk. Endless demonstration runway for ASMR and stress-tests.
-                </p>
-                
-                <div class="verdict-metrics-row">
-                  <div><span>Acquisition Power:</span> <strong class="text-green">Very High</strong></div>
-                  <div><span>Content Longevity:</span> <strong class="text-cyan">50+ Angles</strong></div>
-                  <div><span>Impulse Zone:</span> <strong class="text-yellow">$34.99 Sweet Spot</strong></div>
-                </div>
-
-                <div class="scorecard-actions-row">
-                  <button class="btn-primary" id="btn-export-dossier" style="width: 100%;">
-                    <i data-lucide="file-text"></i> Export Full Intelligence Dossier
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4-Tier Product Portfolio Explorer -->
-        <div class="section-title-row">
-          <div>
-            <h3>4-Tier Product Strategy Portfolio</h3>
-            <p class="text-muted">A balanced ecosystem: Hero products acquire customers, Supporting products lift AOV, Repeat products compound LTV, and Trend products sprint.</p>
-          </div>
-          <div class="filter-pills-row" id="tier-filter-pills">
-            <button class="filter-pill active" data-tier="all">All Tiers (6)</button>
-            <button class="filter-pill" data-tier="HERO">Hero Products</button>
-            <button class="filter-pill" data-tier="SUPPORTING">Supporting Products</button>
-            <button class="filter-pill" data-tier="REPEAT">Repeat Products</button>
-            <button class="filter-pill" data-tier="TREND">Trend Products</button>
-          </div>
-        </div>
-
-        <!-- Product Shortlist Grid -->
-        <div class="product-dossier-grid" id="product-dossier-container">
-          <!-- Dynamically populated from data.js -->
-        </div>
-      </section>
-
-      <!-- TAB: BRAND & CONTENT STRATEGY (AGENT 2) -->
-      <section id="tab-brand-strategy" class="tab-pane">
-        <div class="section-hero">
-          <div>
-            <h2>Brand & Content Strategy Studio</h2>
-            <p>Make people WANT to follow the account even if they never purchase anything. 70% value, 20% integrated, 10% commercial.</p>
-          </div>
-          <div class="quick-stats-pill">
-            <span class="label">Brand:</span>
-            <span class="value text-pink">ApexGrip</span>
-          </div>
-        </div>
-
-        <!-- Critical Follower Magnet Card -->
-        <div class="content-card follower-magnet-banner">
-          <div class="card-header">
-            <h3><i data-lucide="heart" class="text-pink"></i> The Follower Magnet Litmus Test</h3>
-            <span class="badge badge-glow">Core Philosophy</span>
-          </div>
-          <div class="magnet-box">
-            <div class="magnet-quote">
-              <i data-lucide="quote" class="text-pink"></i>
-              <h4>"Why would someone follow this account if they weren't buying today?"</h4>
-            </div>
-            <div class="magnet-reasons-grid">
-              <div class="magnet-reason">
-                <i data-lucide="zap" class="text-cyan"></i>
-                <div>
-                  <strong>Daily Aesthetic Dopamine</strong>
-                  <p>Satisfying 3-second resets, macro ASMR snaps, and clean minimalist desk setups.</p>
-                </div>
-              </div>
-              <div class="magnet-reason">
-                <i data-lucide="wrench" class="text-green"></i>
-                <div>
-                  <strong>High-Utility Life Hacks</strong>
-                  <p>Cable organization secrets, packing tricks, and productivity systems they can use for free.</p>
-                </div>
-              </div>
-              <div class="magnet-reason">
-                <i data-lucide="flame" class="text-yellow"></i>
-                <div>
-                  <strong>Extreme Curiosity & Shock</strong>
-                  <p>Testing durability limits: car roll-overs, 15ft balcony drops, and violent cocktail shakes.</p>
-                </div>
-              </div>
-              <div class="magnet-reason">
-                <i data-lucide="smile" class="text-purple"></i>
-                <div>
-                  <strong>Deep Relatability & Identity</strong>
-                  <p>Relatable workplace humor, Sunday resets, and joining 'The Reset Club' community.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Brand Identity & 70/20/10 Ratio Grid -->
-        <div class="two-col-grid">
-          <!-- Brand Identity Blueprint Card -->
-          <div class="content-card">
-            <div class="card-header">
-              <h3><i data-lucide="badge-check" class="text-cyan"></i> Brand Identity Blueprint</h3>
-              <span class="badge">Flagship: ApexGrip</span>
-            </div>
-
-            <div class="brand-blueprint-list">
-              <div class="bp-row">
-                <span>Brand Name & Tagline:</span>
-                <strong>ApexGrip • <em>Tactile tools for intentional living.</em></strong>
-              </div>
-              <div class="bp-row">
-                <span>Brand Positioning:</span>
-                <p>Where high-utility engineering meets clean minimalist lifestyle aesthetics.</p>
-              </div>
-              <div class="bp-row">
-                <span>Customer Persona:</span>
-                <p><strong>Marcus, 26 (The Aspiring Minimalist)</strong> — UX Designer seeking order, flow, and disciplined morning routines.</p>
-              </div>
-              <div class="bp-row">
-                <span>Tone of Voice:</span>
-                <p>Relatable, confident, witty, empathetic, zero corporate jargon.</p>
-              </div>
-              <div class="bp-row">
-                <span>Customer Aspiration:</span>
-                <p class="text-green">"I am the type of person who is organized, intentional, and has their life completely together."</p>
-              </div>
-              <div class="bp-row">
-                <span>Community Identity:</span>
-                <p class="text-cyan"><strong>'The Reset Club'</strong> — Sunday night reset rituals & comment lab demos.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 70 / 20 / 10 Content Ratio Engine -->
-          <div class="content-card">
-            <div class="card-header">
-              <h3><i data-lucide="pie-chart" class="text-pink"></i> The 70 / 20 / 10 Content Ratio</h3>
-              <span class="badge">Anti-Catalog Rule</span>
-            </div>
-
-            <div class="ratio-progress-bar">
-              <div class="ratio-bar-segment ratio-70" title="70% Pure Value / Entertainment">70% Value</div>
-              <div class="ratio-bar-segment ratio-20" title="20% Product-Integrated Storytelling">20% Integrated</div>
-              <div class="ratio-bar-segment ratio-10" title="10% Commercial CTA">10% CTA</div>
-            </div>
-
-            <div class="ratio-cards-stack">
-              <div class="ratio-card">
-                <span class="ratio-tag tag-value">70% PURE VALUE & ENTERTAINMENT</span>
-                <p>Zero sales pitch. Pure follow-worthy entertainment, life hacks, ASMR resets, and relatable skits.</p>
-              </div>
-              <div class="ratio-card">
-                <span class="ratio-tag tag-integrated">20% PRODUCT-INTEGRATED STORIES</span>
-                <p>The product is an incidental tool solving a problem inside a larger routine or challenge.</p>
-              </div>
-              <div class="ratio-card">
-                <span class="ratio-tag tag-commercial">10% DIRECT COMMERCIAL DROPS</span>
-                <p>Limited-time flash vouchers, restock announcements, and explicit yellow cart links.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6 Content Pillars & 5-Part Post Engine -->
-        <div class="section-title-row">
-          <div>
-            <h3>The 6 Strategic Content Pillars & 5-Part Post Builder</h3>
-            <p class="text-muted">Every post must follow: HOOK (0-3s) → VALUE (3-18s) → EMOTION (18-30s) → PAYOFF (30-40s) → OPTIONAL COMMERCIAL ACTION (40-45s).</p>
-          </div>
-        </div>
-
-        <div class="pillars-selector-row" id="pillars-container">
-          <!-- Dynamically populated from data.js -->
-        </div>
-
-        <!-- 5-Part Post Script Generator & Preview -->
-        <div class="content-card" style="margin-top: 20px;">
-          <div class="card-header">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <span class="step-badge" id="active-pillar-badge">PILLAR 01</span>
-              <h3 id="active-pillar-title">Transformation & Resets</h3>
-            </div>
-            <button class="btn-primary btn-sm" id="btn-copy-5part-script"><i data-lucide="copy"></i> Copy 5-Part Script</button>
-          </div>
-
-          <div class="five-part-timeline" id="five-part-timeline">
-            <!-- Dynamically populated 5-part script -->
-          </div>
-        </div>
-      </section>
-
-      <!-- TAB: CREATIVE PRODUCTION ENGINE (AGENT 3) -->
-      <section id="tab-creative-production" class="tab-pane">
-        <div class="section-hero">
-          <div>
-            <h2>Creative Production Engine & 30-Day Pipeline</h2>
-            <p>Generate TikTok-native content concepts with 15-point specifications, anti-generic hook guardrails, and multi-variant Hook A/B/C testing.</p>
-          </div>
-          <div class="quick-stats-pill">
-            <span class="label">Pipeline Status:</span>
-            <span class="value text-pink">30 Days Active (Rolling)</span>
-          </div>
-        </div>
-
-        <!-- Anti-Generic Hook Guardrail Callout Banner -->
-        <div class="content-card anti-generic-banner">
-          <div class="card-header">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <span class="badge badge-glow" style="background: rgba(254,44,85,0.2); color: #FE2C55; border-color: rgba(254,44,85,0.4);">
-                <i data-lucide="shield-alert"></i> CORE RULE: NEVER START GENERIC
-              </span>
-              <h3>The 3-Second Curiosity Pattern Interrupt</h3>
-            </div>
-            <button class="btn-sm btn-outline" id="btn-toggle-archetypes">
-              <i data-lucide="sparkles"></i> Toggle 10 Curiosity Archetypes
+          <div class="flex-center gap-12">
+            <button class="btn-hero-secondary" onclick="switchView('storefront')">Modify Selection</button>
+            <button class="btn-hero-primary" onclick="checkoutStack()">
+              <i data-lucide="shopping-cart"></i> Subscribe & Save (-15%)
             </button>
-          </div>
-
-          <div class="guardrail-comparison-grid">
-            <div class="guardrail-col forbidden">
-              <div class="guardrail-col-header">
-                <i data-lucide="x-circle" class="text-red"></i>
-                <span class="text-red">FORBIDDEN ZERO-RETENTION OPENINGS</span>
-              </div>
-              <ul class="guardrail-list">
-                <li>❌ "Hi guys, welcome back to my channel..."</li>
-                <li>❌ "Today we are going to look at our new product..."</li>
-                <li>❌ "Check out this amazing organizer from TikTok Shop..."</li>
-                <li>❌ "Do you struggle with messy desk cables?"</li>
-              </ul>
-            </div>
-
-            <div class="guardrail-col native">
-              <div class="guardrail-col-header">
-                <i data-lucide="check-circle-2" class="text-green"></i>
-                <span class="text-green">TIKTOK-NATIVE CURIOSITY HOOKS</span>
-              </div>
-              <ul class="guardrail-list">
-                <li>✅ "If your Monday morning feels like a warzone, do this tonight."</li>
-                <li>✅ "I timed how long it takes to pack a bag with and without this tray..."</li>
-                <li>✅ "Will this magnetic organizer survive a 4,500lb SUV tire?"</li>
-                <li>✅ "Why we threw away 14 prototypes before launching this..."</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Collapsible 10 Curiosity Archetypes Drawer -->
-          <div class="archetypes-drawer" id="archetypes-drawer" style="display: none; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle);">
-            <h4 style="font-size: 14px; margin-bottom: 12px; color: var(--tt-cyan); display: flex; align-items: center; gap: 8px;">
-              <i data-lucide="layers"></i> The 10 Curiosity Archetypes Reference
-            </h4>
-            <div class="archetypes-grid" id="archetypes-grid-container">
-              <!-- Dynamically populated from data.js -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Filter Bar: Pillar & Ratio -->
-        <div class="section-title-row" style="margin-top: 28px;">
-          <div>
-            <h3>Rolling 30-Day Content Production Pipeline</h3>
-            <p class="text-muted">Select any day below to inspect its full 15-Point Concept Schema and test Hook A/B/C variants.</p>
-          </div>
-          <div class="filter-pills-row" id="pipeline-filter-pills">
-            <button class="filter-pill active" data-pillar="all">All 30 Days</button>
-            <button class="filter-pill" data-pillar="p1">Resets (70%)</button>
-            <button class="filter-pill" data-pillar="p2">Education (70%)</button>
-            <button class="filter-pill" data-pillar="p3">Experiments (20%)</button>
-            <button class="filter-pill" data-pillar="p4">Lifestyle (70%)</button>
-            <button class="filter-pill" data-pillar="p5">Comment Lab (20%)</button>
-            <button class="filter-pill" data-pillar="p6">Design BTS (10%)</button>
-          </div>
-        </div>
-
-        <!-- 30-Day Studio Grid Layout (Left: Pipeline List, Right: 15-Point Inspector) -->
-        <div class="creative-studio-grid">
-          <!-- Left Column: Pipeline List Cards -->
-          <div class="pipeline-list-col" id="pipeline-list-container">
-            <!-- Dynamically populated from data.js -->
-          </div>
-
-          <!-- Right Column: 15-Point Concept Inspector & Multi-Variant Hook Studio -->
-          <div class="concept-inspector-col" id="concept-inspector-col">
-            <!-- Dynamically populated active concept inspector -->
-          </div>
-        </div>
-      </section>
-
-      <!-- TAB: TIKTOK SHOP GROWTH & COMMERCIAL AGENT (AGENT 4) -->
-      <section id="tab-shop-growth" class="tab-pane">
-        <div class="section-hero">
-          <div>
-            <h2>TikTok Shop Growth & Creator Commercial Engine</h2>
-            <p>Turn attention into profitable revenue across the 7-stage commercial funnel, diagnose conversion bottlenecks, and scale high-ROI creators.</p>
-          </div>
-          <div class="quick-stats-pill">
-            <span class="label">Funnel RPM:</span>
-            <span class="value text-cyan">$46.92 / 1K Views</span>
-          </div>
-        </div>
-
-        <!-- KPI Telemetry Banner (6 Key Performance Drivers) -->
-        <div class="hero-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px;">
-          <div class="metric-card">
-            <span class="metric-label">Total Views</span>
-            <span class="metric-val text-white" id="funnel-views">850.0K</span>
-            <span class="metric-trend text-green"><i data-lucide="eye"></i> 68.4% 2s Retention</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">In-Video Yellow Cart CTR</span>
-            <span class="metric-val text-pink" id="funnel-ctr">3.35%</span>
-            <span class="metric-trend text-green"><i data-lucide="mouse-pointer-click"></i> 28.5K Clicks</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">Completed Orders</span>
-            <span class="metric-val text-green" id="funnel-orders">1,140</span>
-            <span class="metric-trend text-green"><i data-lucide="check-circle-2"></i> 4.00% CVR</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">Total GMV Revenue</span>
-            <span class="metric-val text-yellow" id="funnel-gmv">$39,888</span>
-            <span class="metric-trend text-cyan"><i data-lucide="shopping-bag"></i> $34.99 AOV</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">Blended Net Profit</span>
-            <span class="metric-val text-cyan" id="funnel-profit">$11,248</span>
-            <span class="metric-trend text-green"><i data-lucide="trending-up"></i> 28.2% Net Margin</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">Refund / Return Rate</span>
-            <span class="metric-val text-green" id="funnel-refund">0.88%</span>
-            <span class="metric-trend text-green"><i data-lucide="shield-check"></i> &lt; 1.5% SLA</span>
-          </div>
-        </div>
-
-        <!-- 7-Stage Commercial Funnel Visualizer -->
-        <div class="content-card">
-          <div class="card-header">
-            <div>
-              <h3><i data-lucide="git-commit" class="text-cyan"></i> The 7-Stage Commercial Funnel Architecture</h3>
-              <p class="text-muted">Click any funnel stage below to inspect conversion velocity, drop-off analysis, and specific optimization levers.</p>
-            </div>
-            <span class="badge badge-glow">Live Funnel Telemetry</span>
-          </div>
-
-          <div class="funnel-stages-pipeline" id="funnel-stages-container">
-            <!-- Dynamically populated from data.js -->
-          </div>
-
-          <!-- Active Funnel Stage Detail Inspector -->
-          <div class="funnel-stage-inspector" id="funnel-stage-inspector" style="margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border-subtle);">
-            <!-- Dynamically populated active stage inspector -->
-          </div>
-        </div>
-
-        <!-- The 5 Diagnostic Funnel Triage Protocols Simulator -->
-        <div class="content-card" style="border-color: rgba(254, 44, 85, 0.35);">
-          <div class="card-header">
-            <div>
-              <h3><i data-lucide="activity" class="text-pink"></i> Funnel Bottleneck Diagnostic & Triage Simulator</h3>
-              <p class="text-muted">Select any failure symptom below to trigger ShopGrowth's automated root cause diagnosis and multi-agent remediation protocol.</p>
-            </div>
-            <span class="badge badge-glow" style="background: rgba(254,44,85,0.2); color: #FE2C55;">Failure-Mode Triage</span>
-          </div>
-
-          <!-- Diagnostic Scenario Selector Buttons -->
-          <div class="diagnostic-selector-grid">
-            <button class="diag-btn active" data-diag="high_views_low_clicks" onclick="selectDiagnosticScenario('high_views_low_clicks')">
-              <span class="diag-num">SCENARIO 01</span>
-              <strong>High Views + Low Clicks</strong>
-              <span>CTA / Positioning Issue</span>
-            </button>
-            <button class="diag-btn" data-diag="high_clicks_low_sales" onclick="selectDiagnosticScenario('high_clicks_low_sales')">
-              <span class="diag-num">SCENARIO 02</span>
-              <strong>High Clicks + Low Sales</strong>
-              <span>Showcase / Offer Friction</span>
-            </button>
-            <button class="diag-btn" data-diag="low_retention" onclick="selectDiagnosticScenario('low_retention')">
-              <span class="diag-num">SCENARIO 03</span>
-              <strong>Low 3s Retention</strong>
-              <span>Creative Opening Drag</span>
-            </button>
-            <button class="diag-btn" data-diag="high_returns" onclick="selectDiagnosticScenario('high_returns')">
-              <span class="diag-num">SCENARIO 04</span>
-              <strong>High Sales + High Returns</strong>
-              <span>Expectation Mismatch</span>
-            </button>
-            <button class="diag-btn" data-diag="low_followers" onclick="selectDiagnosticScenario('low_followers')">
-              <span class="diag-num">SCENARIO 05</span>
-              <strong>High Likes + Low Follows</strong>
-              <span>Account Identity Gap</span>
-            </button>
-          </div>
-
-          <!-- Active Diagnostic Output Box -->
-          <div class="diagnostic-output-box" id="diagnostic-output-box" style="margin-top: 20px;">
-            <!-- Dynamically populated from data.js -->
-          </div>
-        </div>
-
-        <!-- Affiliate & Creator Acquisition CRM & Performance Scorecard -->
-        <div class="section-title-row" style="margin-top: 28px;">
-          <div>
-            <h3>Affiliate & Creator Acquisition CRM & Performance Ledger</h3>
-            <p class="text-muted">Fit-over-followers acquisition engine. Scale creators generating profitable sales and trim vanity engagement.</p>
-          </div>
-          <div style="display: flex; gap: 10px; align-items: center;">
-            <button class="btn-primary" id="btn-open-pitch-modal" onclick="openCreatorPitchModal('Alex Rivera', '@alex_tech_setups', 'alex')">
-              <i data-lucide="send"></i> Launch Outreach Pitch Engine
-            </button>
-          </div>
-        </div>
-
-        <!-- Creator Filter Bar -->
-        <div class="creator-filter-bar">
-          <div class="filter-pills-row" id="creator-type-filter-pills">
-            <button class="filter-pill active" data-type="all">All Creator Types (7)</button>
-            <button class="filter-pill" data-type="micro">Micro Creators (2)</button>
-            <button class="filter-pill" data-type="ugc">UGC Pros (2)</button>
-            <button class="filter-pill" data-type="authority">Authorities (1)</button>
-            <button class="filter-pill" data-type="lifestyle">Lifestyle (1)</button>
-            <button class="filter-pill" data-type="affiliate">Affiliate (1)</button>
-          </div>
-          <div class="filter-pills-row" id="creator-status-filter-pills" style="margin-left: auto;">
-            <button class="filter-pill active" data-status="all">All Actions</button>
-            <button class="filter-pill text-green" data-status="scale">🟢 Scale Investment</button>
-            <button class="filter-pill text-yellow" data-status="coach">🟡 Coach Creator</button>
-            <button class="filter-pill text-red" data-status="trim">🔴 Trim Investment</button>
-          </div>
-        </div>
-
-        <!-- Creator Performance Cards / Ledger Table -->
-        <div class="creator-performance-grid" id="creator-performance-container">
-          <!-- Dynamically populated from data.js -->
-        </div>
-      </section>
-
-      <!-- TAB 2: SPECIALIST AGENT WORKBENCH -->
-      <section id="tab-agent-workbench" class="tab-pane">
-        <div class="workbench-layout">
-          <!-- Left: Agent Selector -->
-          <div class="agent-selector-panel">
-            <div class="panel-header">
-              <h4>Specialist Agents</h4>
-              <span class="badge badge-sm">5 Online</span>
-            </div>
-            <div class="agent-selector-list">
-              <div class="agent-select-item" data-agent="marketintel">
-                <div class="icon-avatar cyan"><i data-lucide="search-check"></i></div>
-                <div class="item-info">
-                  <strong>MarketIntel</strong>
-                  <span>Product & Market Intelligence</span>
-                </div>
-              </div>
-              <div class="agent-select-item active" data-agent="hookmaster">
-                <div class="icon-avatar pink"><i data-lucide="sparkles"></i></div>
-                <div class="item-info">
-                  <strong>BrandCraft</strong>
-                  <span>Brand & Content Strategy</span>
-                </div>
-              </div>
-              <div class="agent-select-item" data-agent="shopengine">
-                <div class="icon-avatar yellow"><i data-lucide="shopping-cart"></i></div>
-                <div class="item-info">
-                  <strong>ShopEngine</strong>
-                  <span>Shop Merchandiser & Margins</span>
-                </div>
-              </div>
-              <div class="agent-select-item" data-agent="creatorscale">
-                <div class="icon-avatar purple"><i data-lucide="users"></i></div>
-                <div class="item-info">
-                  <strong>CreatorScale</strong>
-                  <span>Creator & Affiliate Scaler</span>
-                </div>
-              </div>
-              <div class="agent-select-item" data-agent="growthpulse">
-                <div class="icon-avatar green"><i data-lucide="activity"></i></div>
-                <div class="item-info">
-                  <strong>GrowthPulse</strong>
-                  <span>Spark Ads & Growth Optimizer</span>
-                </div>
-              </div>
-              <div class="agent-select-item" data-agent="retentionloop">
-                <div class="icon-avatar blue"><i data-lucide="message-square-heart"></i></div>
-                <div class="item-info">
-                  <strong>RetentionLoop</strong>
-                  <span>Retention & Community Lead</span>
-                </div>
-              </div>
-              <div class="agent-select-item" data-agent="orchestrator">
-                <div class="icon-avatar pink"><i data-lucide="shield-check"></i></div>
-                <div class="item-info">
-                  <strong>Team Orchestrator</strong>
-                  <span>Flywheel Coordinator</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Quick Presets -->
-            <div class="presets-box">
-              <label><i data-lucide="sparkles"></i> Load Demo Product Scenario:</label>
-              <select id="preset-product-select" class="form-select">
-                <option value="magnetic_tray">ApexGrip Magnetic EDC Desk Organizer</option>
-                <option value="cold_brew">PulseFlow Rapid Nitro Cold Brew Tumbler</option>
-                <option value="lumibar">LumiGlow Portable Content Studio Light</option>
-                <option value="custom">-- Custom Product Input --</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Right: Interactive Agent Console & Generator -->
-          <div class="agent-console-panel">
-            <div class="console-header">
-              <div class="active-agent-info" id="active-agent-header">
-                <div class="icon-avatar pink" id="agent-header-icon"><i data-lucide="sparkles"></i></div>
-                <div>
-                  <h3 id="agent-header-name">BrandCraft</h3>
-                  <p id="agent-header-role" class="text-muted">Brand & Content Director — 70/20/10 Ratio & 5-Part Scripts</p>
-                </div>
-              </div>
-              <div class="console-actions">
-                <button class="btn-sm btn-outline" id="btn-copy-output"><i data-lucide="copy"></i> Copy Output</button>
-                <button class="btn-sm btn-outline" id="btn-export-json"><i data-lucide="download"></i> Export JSON</button>
-              </div>
-            </div>
-
-            <!-- Agent Prompt Form Parameters -->
-            <div class="agent-inputs-container" id="agent-inputs-container">
-              <!-- Dynamically populated based on active agent -->
-            </div>
-
-            <div class="console-generate-row">
-              <button class="btn-primary btn-lg" id="btn-run-agent">
-                <i data-lucide="play"></i>
-                <span id="btn-run-text">Run BrandCraft Engine</span>
-              </button>
-            </div>
-
-            <!-- Agent Live Output Window -->
-            <div class="agent-output-window">
-              <div class="output-header">
-                <span><i data-lucide="terminal"></i> Generated Specialist Intelligence & Output</span>
-                <span class="badge badge-success" id="output-status-badge">Ready</span>
-              </div>
-              <div class="output-content" id="agent-output-box">
-                <!-- Dynamically generated output -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TAB 3: VIRAL HOOK & SCRIPT LAB -->
-      <section id="tab-hook-lab" class="tab-pane">
-        <div class="section-hero">
-          <div>
-            <h2>Viral Hook Lab & 9 Emotion Pillars</h2>
-            <p>Master the 3-second pattern interrupt. People follow because they feel something, not because you're selling.</p>
-          </div>
-          <div class="filter-pills-row" id="emotion-filter-pills">
-            <button class="filter-pill active" data-pillar="all">All 9 Pillars (50+)</button>
-            <button class="filter-pill" data-pillar="Inspired">Inspired</button>
-            <button class="filter-pill" data-pillar="Motivated">Motivated</button>
-            <button class="filter-pill" data-pillar="Curious">Curious</button>
-            <button class="filter-pill" data-pillar="Entertained">Entertained</button>
-            <button class="filter-pill" data-pillar="Understood">Understood</button>
-            <button class="filter-pill" data-pillar="Educated">Educated</button>
-            <button class="filter-pill" data-pillar="Surprised">Surprised</button>
-            <button class="filter-pill" data-pillar="Community">Community</button>
-            <button class="filter-pill" data-pillar="Excited">Excited to Improve</button>
-          </div>
-        </div>
-
-        <div class="hook-builder-row">
-          <div class="hook-customizer-card">
-            <h4><i data-lucide="sliders" class="text-pink"></i> Live Hook & Script Customizer</h4>
-            <p class="text-muted">Select any viral hook template below and instantly inject your product details.</p>
-            
-            <div class="form-grid-3">
-              <div class="form-group">
-                <label>Your Product Name</label>
-                <input type="text" id="hook-product-input" class="form-input" value="ApexGrip Magnetic Tray">
-              </div>
-              <div class="form-group">
-                <label>Core Problem / Pain Point</label>
-                <input type="text" id="hook-pain-input" class="form-input" value="Messy backpack cables & lost gear">
-              </div>
-              <div class="form-group">
-                <label>Target Viewer Emotion</label>
-                <select id="hook-emotion-select" class="form-select">
-                  <option value="Understood">Understood (Shared Pain)</option>
-                  <option value="Curious">Curious (Mystery & Discovery)</option>
-                  <option value="Excited">Excited to Improve (Life Upgrade)</option>
-                  <option value="Surprised">Surprised (Shock Demonstration)</option>
-                  <option value="Inspired">Inspired (Aesthetic Transformation)</option>
-                  <option value="Entertained">Entertained (Humor / Irony)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="hook-result-preview" id="hook-preview-box">
-              <div class="preview-tag"><i data-lucide="zap"></i> Generated 3s Retention Hook</div>
-              <h3 id="custom-hook-display">"POV: You spend 10 minutes every morning looking for your cables..."</h3>
-              <div class="hook-breakdown-row">
-                <div><span>Visual Action:</span> <strong id="custom-hook-visual">Violently dumping tangled wires out of backpack.</strong></div>
-                <div><span>Audio Foley:</span> <strong id="custom-hook-audio">Fast chaotic foley → Sudden crisp magnetic click.</strong></div>
-                <div><span>On-Screen Text:</span> <strong id="custom-hook-text">"Stop doing this to yourself 🤦‍♂️"</strong></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hooks Cards Grid -->
-        <div class="hooks-grid" id="hooks-cards-container">
-          <!-- Dynamically populated from data.js -->
-        </div>
-      </section>
-
-      <!-- TAB 4: SHOP ECONOMICS & MARGIN CALCULATOR -->
-      <section id="tab-margin-calculator" class="tab-pane">
-        <div class="section-hero">
-          <div>
-            <h2>TikTok Shop Unit Economics & Spark Ads Modeling</h2>
-            <p>Ensure profitable unit economics factoring in TikTok platform fees, creator bounties, fulfillment, and Spark Ads.</p>
-          </div>
-        </div>
-
-        <div class="calculator-grid">
-          <!-- Inputs Card -->
-          <div class="content-card">
-            <div class="card-header">
-              <h3><i data-lucide="sliders-horizontal" class="text-cyan"></i> Pricing & Cost Parameters</h3>
-              <span class="badge">Live Simulator</span>
-            </div>
-
-            <div class="form-vertical">
-              <div class="form-group">
-                <div class="label-row">
-                  <label>Retail Selling Price ($)</label>
-                  <span class="val-badge" id="val-price">$34.99</span>
-                </div>
-                <input type="range" id="input-price" min="10" max="120" step="1" value="35" class="range-slider">
-              </div>
-
-              <div class="form-group">
-                <div class="label-row">
-                  <label>COGS & Packaging ($)</label>
-                  <span class="val-badge" id="val-cogs">$7.50</span>
-                </div>
-                <input type="range" id="input-cogs" min="1" max="40" step="0.5" value="7.5" class="range-slider">
-              </div>
-
-              <div class="form-group">
-                <div class="label-row">
-                  <label>Domestic Shipping Cost ($)</label>
-                  <span class="val-badge" id="val-shipping">$4.20</span>
-                </div>
-                <input type="range" id="input-shipping" min="0" max="15" step="0.2" value="4.2" class="range-slider">
-              </div>
-
-              <div class="form-group">
-                <div class="label-row">
-                  <label>TikTok Shop Platform Fee (%)</label>
-                  <span class="val-badge" id="val-platform-fee">6.0%</span>
-                </div>
-                <input type="range" id="input-platform-fee" min="2" max="10" step="0.5" value="6" class="range-slider">
-              </div>
-
-              <div class="form-group">
-                <div class="label-row">
-                  <label>Creator Affiliate Commission (%)</label>
-                  <span class="val-badge" id="val-commission">20.0%</span>
-                </div>
-                <input type="range" id="input-commission" min="5" max="35" step="1" value="20" class="range-slider">
-              </div>
-
-              <div class="form-group">
-                <div class="label-row">
-                  <label>Spark Ads Target Direct ROAS</label>
-                  <span class="val-badge" id="val-roas">3.0x</span>
-                </div>
-                <input type="range" id="input-roas" min="1.5" max="6.0" step="0.1" value="3.0" class="range-slider">
-              </div>
-            </div>
-          </div>
-
-          <!-- Output Waterfall & Metrics Card -->
-          <div class="content-card">
-            <div class="card-header">
-              <h3><i data-lucide="dollar-sign" class="text-green"></i> Net Contribution Margin Waterfall</h3>
-              <span class="badge badge-success" id="margin-health-badge">Healthy Margin</span>
-            </div>
-
-            <div class="margin-metrics-banner">
-              <div class="big-metric">
-                <span>Net Profit Per Unit</span>
-                <h3 id="out-net-dollars" class="text-green">$9.89</h3>
-              </div>
-              <div class="big-metric">
-                <span>Net Margin %</span>
-                <h3 id="out-net-pct" class="text-cyan">28.3%</h3>
-              </div>
-              <div class="big-metric">
-                <span>Breakeven ROAS</span>
-                <h3 id="out-be-roas" class="text-yellow">1.72x</h3>
-              </div>
-            </div>
-
-            <div class="chart-container-sm">
-              <canvas id="marginWaterfallChart"></canvas>
-            </div>
-
-            <div class="waterfall-list">
-              <div class="waterfall-row">
-                <span>Retail Revenue</span>
-                <strong id="wf-rev">$34.99</strong>
-              </div>
-              <div class="waterfall-row text-red">
-                <span>- Product COGS</span>
-                <strong id="wf-cogs">-$7.50</strong>
-              </div>
-              <div class="waterfall-row text-red">
-                <span>- Domestic Shipping</span>
-                <strong id="wf-shipping">-$4.20</strong>
-              </div>
-              <div class="waterfall-row text-red">
-                <span>- TikTok Shop Fee (6%)</span>
-                <strong id="wf-fee">-$2.10</strong>
-              </div>
-              <div class="waterfall-row text-red">
-                <span>- Creator Affiliate Bounty (20%)</span>
-                <strong id="wf-comm">-$7.00</strong>
-              </div>
-              <div class="waterfall-row text-red">
-                <span>- Spark Ads Acquisition Cost (at 3.0x ROAS)</span>
-                <strong id="wf-ads">-$4.30</strong>
-              </div>
-              <div class="waterfall-row total-row text-green">
-                <span>= Net Retained Profit</span>
-                <strong id="wf-profit">+$9.89</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TAB 5: CREATOR & AFFILIATE CRM -->
-      <section id="tab-creator-crm" class="tab-pane">
-        <div class="section-hero">
-          <div>
-            <h2>Creator, Affiliate & UGC Distribution Hub</h2>
-            <p>Manage your 3-tier creator pipeline, sample seeding, and Spark Ad whitelisting rights.</p>
-          </div>
-          <button class="btn-primary" id="btn-add-creator-modal"><i data-lucide="user-plus"></i> Add Creator Pitch</button>
-        </div>
-
-        <div class="crm-pipeline-row">
-          <div class="pipeline-col">
-            <div class="col-header">
-              <span>Pitched / Outreach (18)</span>
-              <span class="badge">Tier 1 & 2</span>
-            </div>
-            <div class="creator-cards-list" id="col-pitched"></div>
-          </div>
-          <div class="pipeline-col">
-            <div class="col-header">
-              <span>Sample Shipped (12)</span>
-              <span class="badge">Dispatched</span>
-            </div>
-            <div class="creator-cards-list" id="col-shipped"></div>
-          </div>
-          <div class="pipeline-col">
-            <div class="col-header">
-              <span>Video Live (15)</span>
-              <span class="badge">Yellow Cart Active</span>
-            </div>
-            <div class="creator-cards-list" id="col-live"></div>
-          </div>
-          <div class="pipeline-col">
-            <div class="col-header">
-              <span>Spark Ad Scaled (6)</span>
-              <span class="badge badge-glow">Top GMV</span>
-            </div>
-            <div class="creator-cards-list" id="col-spark"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TAB 6: RETENTION & UNBOXING STUDIO -->
-      <section id="tab-retention-unboxing" class="tab-pane">
-        <div class="section-hero">
-          <div>
-            <h2>Comment Conversion & VIP Unboxing Studio</h2>
-            <p>Convert viewer objections in the comments into high-retention video replies and design viral unboxing insert cards.</p>
-          </div>
-        </div>
-
-        <div class="two-col-grid">
-          <!-- Comment Objection Converter -->
-          <div class="content-card">
-            <div class="card-header">
-              <h3><i data-lucide="message-square" class="text-pink"></i> Comment-to-Video Conversion Engine</h3>
-              <span class="badge">Live Simulator</span>
-            </div>
-
-            <div class="comment-simulator-box">
-              <div class="sim-comment">
-                <div class="comment-avatar">TD</div>
-                <div class="comment-body">
-                  <div class="comment-author">@tech_dan_official <span class="comment-time">2h ago</span></div>
-                  <p class="comment-text">"Looks cool but does this magnetic lock actually hold when you run or shake it? Looks like it'll drop everything."</p>
-                </div>
-              </div>
-
-              <div class="reply-conversion-banner">
-                <i data-lucide="arrow-down" class="text-green"></i>
-                <span>RetentionLoop Automated Video Reply Script</span>
-              </div>
-
-              <div class="script-card">
-                <div class="script-header">
-                  <span>Replying to @tech_dan_official</span>
-                  <span class="badge badge-sm">Stress-Test Hook</span>
-                </div>
-                <div class="script-body">
-                  <p><strong>[Visual (0:00-0:03)]:</strong> Close up of creator reading Dan's comment on screen. Creator looks directly at camera with a grin, grabs the organizer filled with tools and vigorously shakes it upside down like a cocktail shaker.</p>
-                  <p><strong>[Audio VO]:</strong> "Dan asked if the magnet holds... let's find out."</p>
-                  <p><strong>[Visual (0:03-0:15)]:</strong> Creator steps outside and drops it from waist height onto grass. Picks it up: everything is 100% locked in place.</p>
-                  <p><strong>[CTA (0:15-0:22)]:</strong> "Safe to say your cables aren't going anywhere. Linked in the yellow cart below!"</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Unboxing Insert Card Designer -->
-          <div class="content-card">
-            <div class="card-header">
-              <h3><i data-lucide="qr-code" class="text-cyan"></i> Tactile Unboxing Card & Review Flywheel</h3>
-              <span class="badge">Packaging Asset</span>
-            </div>
-
-            <div class="unboxing-card-preview">
-              <div class="card-inner">
-                <div class="card-top-tag">VIP COMMUNITY PASS ✨</div>
-                <h3>WELCOME TO THE APEX CLUB</h3>
-                <p class="card-subtitle">Thank you for upgrading your everyday carry.</p>
-                
-                <div class="card-steps-box">
-                  <div class="card-step">
-                    <span class="step-circle">1</span>
-                    <span>Scan QR to activate your <strong>Lifetime Warranty</strong></span>
-                  </div>
-                  <div class="card-step">
-                    <span class="step-circle">2</span>
-                    <span>Post a quick TikTok unboxing tagging <strong>@ApexGrip</strong></span>
-                  </div>
-                  <div class="card-step">
-                    <span class="step-circle">3</span>
-                    <span>Receive a <strong>$10 TikTok Shop Voucher</strong> instantly</span>
-                  </div>
-                </div>
-
-                <div class="qr-mock-box">
-                  <div class="qr-code-graphic">
-                    <i data-lucide="qr-code"></i>
-                  </div>
-                  <div class="qr-text">
-                    <strong>SCAN TO JOIN VIP LOUNGE</strong>
-                    <span>3 customer videos picked monthly to win $500</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- TAB 7: VAULT & SOP DOCS -->
-      <!-- ================================================================ -->
-      <!-- TAB: AGENT 5 — PERFORMANCE, QA & COMPLIANCE (QAPerformance)    -->
-      <!-- ================================================================ -->
-      <section id="tab-performance-qa" class="tab-pane">
-        <!-- Hero Banner -->
-        <div class="section-hero">
-          <div>
-            <div class="hero-badge">
-              <span class="badge-dot green"></span>
-              <span class="badge-text">AGENT 05 &bull; QA, COMPLIANCE & CLOSED-LOOP INTELLIGENCE</span>
-            </div>
-            <h2>Performance, QA & Compliance Engine</h2>
-            <p>Protecting the brand with 9-point pre-publishing verification, weekly WIN/LEARN/KILL reviews, 5-factor diagnostic triage, and turning customer voice into high-converting videos.</p>
-          </div>
-          <div class="hero-metrics">
-            <div class="hero-stat-card">
-              <span class="stat-label">QA Pass Rate</span>
-              <span class="stat-value text-green" id="qa-pass-rate">100%</span>
-              <span class="stat-sub">9/9 Checkpoints Cleared</span>
-            </div>
-            <div class="hero-stat-card">
-              <span class="stat-label">Weekly Telemetry</span>
-              <span class="stat-value text-cyan">12 Videos</span>
-              <span class="stat-sub">$113.8k Total GMV</span>
-            </div>
-            <div class="hero-stat-card">
-              <span class="stat-label">VOC Content Pipeline</span>
-              <span class="stat-value text-pink">4 Briefs</span>
-              <span class="stat-sub">Comments &rarr; Scripts</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Section 1: Pre-Publishing QA & Policy Compliance Checker -->
-        <div class="qa-verification-container glass-card mb-30">
-          <div class="card-header-flex">
-            <div>
-              <h3><i data-lucide="shield-check" class="text-green"></i> 1. Pre-Publishing QA & Policy Compliance Checklist</h3>
-              <p class="text-muted">Mandatory 9-point verification protocol before publishing or attaching TikTok Shop product tags.</p>
-            </div>
-            <div class="qa-status-pill" id="qa-master-status">
-              <i data-lucide="check-circle" class="text-green"></i>
-              <span class="text-green font-semibold">ALL 9 CHECKPOINTS VERIFIED</span>
-            </div>
-          </div>
-
-          <!-- Live Claim & Policy Scanner Box -->
-          <div class="policy-scanner-box glass-panel mb-20">
-            <div class="scanner-header">
-              <div class="flex-center gap-10">
-                <i data-lucide="scan-search" class="text-cyan"></i>
-                <span class="font-semibold text-white">Live Policy & Claim Scanner</span>
-                <span class="pill-chip pill-cyan">Real-time Policy Guard</span>
-              </div>
-              <button class="btn-xs btn-outline" id="btn-load-sample-claim">Load Sample Risky Script</button>
-            </div>
-            <p class="text-xs text-muted mb-10">Paste proposed hook, voiceover script, or caption below to automatically scan for restricted medical terms, absolute claims, fake pricing, or prohibited guarantees.</p>
-            <div class="scanner-input-wrapper">
-              <textarea id="qa-claim-input" class="form-textarea scanner-textarea" placeholder="Type or paste proposed video hook, caption, or script here... (e.g., 'This mount completely eliminates back pain and never drops your phone! Only 2 left!')" rows="2"></textarea>
-              <button class="btn-primary btn-scanner" id="btn-run-policy-scan"><i data-lucide="search"></i> Scan Script</button>
-            </div>
-            <div id="qa-scanner-results" class="scanner-results-container hidden">
-              <!-- Rendered scan results with flagged words and compliant rewrites -->
-            </div>
-          </div>
-
-          <!-- 9 Checkpoints Grid -->
-          <div class="qa-checkpoints-grid" id="qa-checkpoints-list">
-            <!-- Dynamically populated from data.js -->
-          </div>
-        </div>
-
-        <!-- Section 2: Weekly WIN / LEARN / KILL Matrix & 5-Factor Triage -->
-        <div class="win-learn-kill-container glass-card mb-30">
-          <div class="card-header-flex">
-            <div>
-              <h3><i data-lucide="sparkles" class="text-pink"></i> 2. Weekly WIN / LEARN / KILL Performance Matrix</h3>
-              <p class="text-muted">Analyze 7-day post-publishing telemetry. Scale winners, iterate hypotheses, and sunset underperformers.</p>
-            </div>
-            <div class="wlk-filter-tabs">
-              <button class="wlk-tab-btn active" data-filter="all">All Content (7)</button>
-              <button class="wlk-tab-btn" data-filter="wins"><span class="badge-dot green"></span> WIN (3)</button>
-              <button class="wlk-tab-btn" data-filter="learns"><span class="badge-dot yellow"></span> LEARN (2)</button>
-              <button class="wlk-tab-btn" data-filter="kills"><span class="badge-dot red"></span> KILL (2)</button>
-            </div>
-          </div>
-
-          <!-- Cards Grid -->
-          <div class="wlk-cards-grid" id="wlk-cards-container">
-            <!-- Dynamically populated from data.js -->
-          </div>
-
-          <!-- 5-Factor Root Cause Diagnostic Decision Tree -->
-          <div class="root-cause-triage-panel glass-panel mt-25">
-            <div class="panel-header">
-              <div class="flex-center gap-10">
-                <i data-lucide="stethoscope" class="text-yellow"></i>
-                <h4 class="text-white font-semibold">5-Factor Root Cause Diagnostic Triage</h4>
-                <span class="pill-chip pill-yellow">Underperformance Triage</span>
-              </div>
-              <span class="text-xs text-muted">Never guess why content failed—isolate the failure mode:</span>
-            </div>
-
-            <!-- Root Cause Selector Buttons -->
-            <div class="root-cause-buttons-grid">
-              <button class="rc-btn active" data-cause="bad_product">
-                <i data-lucide="package-x"></i>
-                <span>BAD PRODUCT</span>
-              </button>
-              <button class="rc-btn" data-cause="bad_creative">
-                <i data-lucide="video-off"></i>
-                <span>BAD CREATIVE</span>
-              </button>
-              <button class="rc-btn" data-cause="bad_offer">
-                <i data-lucide="tag"></i>
-                <span>BAD OFFER</span>
-              </button>
-              <button class="rc-btn" data-cause="bad_audience">
-                <i data-lucide="user-x"></i>
-                <span>BAD AUDIENCE</span>
-              </button>
-              <button class="rc-btn" data-cause="bad_execution">
-                <i data-lucide="alert-triangle"></i>
-                <span>BAD EXECUTION</span>
-              </button>
-            </div>
-
-            <!-- Dynamic Root Cause Diagnostic Card -->
-            <div class="rc-diagnostic-output glass-card-nested" id="rc-diagnostic-display">
-              <!-- Rendered via app.js -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Section 3: Content Learning Engine (Telemetric Pattern Intelligence) -->
-        <div class="content-learning-container glass-card mb-30">
-          <div class="card-header-flex">
-            <div>
-              <h3><i data-lucide="brain-circuit" class="text-cyan"></i> 3. Content Learning Engine & Multi-Factor Intelligence</h3>
-              <p class="text-muted">Every published video is data. Pattern synthesis across hooks, formats, video durations, and CTAs.</p>
-            </div>
-            <div class="search-input-wrapper">
-              <i data-lucide="search"></i>
-              <input type="text" id="telemetry-search-input" class="form-input form-input-sm" placeholder="Filter by product, hook or pillar...">
-            </div>
-          </div>
-
-          <!-- Multi-Factor Aggregation Insight Cards -->
-          <div class="intelligence-insights-grid mb-20">
-            <div class="insight-card">
-              <div class="insight-icon cyan"><i data-lucide="zap"></i></div>
-              <div class="insight-body">
-                <span class="insight-label">Top Performing Hook Archetype</span>
-                <div class="insight-val text-cyan">Contrarian Observation</div>
-                <div class="insight-meta">72.4% 3s Retention &bull; 3.7% CTR &bull; $34.80 RPM</div>
-              </div>
-            </div>
-            <div class="insight-card">
-              <div class="insight-icon green"><i data-lucide="clock"></i></div>
-              <div class="insight-body">
-                <span class="insight-label">Revenue-Optimal Video Duration</span>
-                <div class="insight-val text-green">18 – 24 Seconds</div>
-                <div class="insight-meta">27.4% Completion &bull; 3.4% CTR &bull; Highest Velocity</div>
-              </div>
-            </div>
-            <div class="insight-card">
-              <div class="insight-icon pink"><i data-lucide="mouse-pointer-click"></i></div>
-              <div class="insight-body">
-                <span class="insight-label">Highest Converting CTA Formula</span>
-                <div class="insight-val text-pink">"Tap yellow basket before batch 2 sells out"</div>
-                <div class="insight-meta">3.8% Cart CVR &bull; 2.1x over generic "link below"</div>
-              </div>
-            </div>
-            <div class="insight-card">
-              <div class="insight-icon yellow"><i data-lucide="trending-up"></i></div>
-              <div class="insight-body">
-                <span class="insight-label">Highest RPM Hero Product</span>
-                <div class="insight-val text-yellow">ApexGrip Magnetic EDC Mount</div>
-                <div class="insight-meta">$33.80 Average Revenue per 1,000 Views</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Telemetry Database Table -->
-          <div class="table-responsive">
-            <table class="telemetry-table" id="content-telemetry-table">
-              <thead>
-                <tr>
-                  <th>Video ID</th>
-                  <th>Date</th>
-                  <th>Product SKU</th>
-                  <th>Pillar</th>
-                  <th>Hook Archetype</th>
-                  <th>Length</th>
-                  <th>Views</th>
-                  <th>3s Ret %</th>
-                  <th>Compl %</th>
-                  <th>CTR %</th>
-                  <th>Orders</th>
-                  <th>Revenue</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="telemetry-table-body">
-                <!-- Dynamically populated from data.js -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Section 4: Customer Feedback Engine (Voice-of-Customer -> Video Pipeline) -->
-        <div class="voc-pipeline-container glass-card">
-          <div class="card-header-flex">
-            <div>
-              <h3><i data-lucide="message-square-quote" class="text-pink"></i> 4. Customer Feedback Engine (Voice-of-Customer &rarr; Video Pipeline)</h3>
-              <p class="text-muted">Turn recurring TikTok comments, 5-star reviews, customer objections, and return tickets into viral video briefs.</p>
-            </div>
-            <span class="pill-chip pill-pink"><i data-lucide="sparkles"></i> 4 Active VOC Briefs Ready</span>
-          </div>
-
-          <!-- VOC Feed Cards Grid -->
-          <div class="voc-cards-grid" id="voc-cards-container">
-            <!-- Dynamically populated from data.js -->
           </div>
         </div>
       </section>
 
       <!-- ================================================================ -->
-      <!-- TAB: STRATEGIC SOP & AGENT VAULT                                 -->
+      <!-- VIEW 4: CUSTOMER PORTAL (MY PERFORMANCE LAB) & ROUTINE TIMELINE -->
       <!-- ================================================================ -->
-      <section id="tab-vault-docs" class="tab-pane">
-        <div class="section-hero">
+      <section id="view-dashboard" class="view-pane">
+        <div class="portal-hero">
           <div>
-            <h2>Strategic SOP & Agent Vault</h2>
-            <p>Access full agent system files, compliance rules, and outreach scripts.</p>
+            <div class="hero-pill-badge">
+              <i data-lucide="user-check"></i>
+              <span>MY PERFORMANCE LAB &bull; ATHLETE PROFILE #PL-8492</span>
+            </div>
+            <h2>Marcus Vance &bull; Hybrid Endurance Athlete</h2>
+            <p>Training Frequency: <strong>5 Days / Week</strong> &bull; Primary Focus: <strong>Hyrox & High-Volume Stamina</strong></p>
+          </div>
+          <button class="btn-quiz-next" onclick="startProfileQuiz()">
+            <i data-lucide="refresh-cw"></i> Recalibrate Routine
+          </button>
+        </div>
+
+        <!-- 24-Hour Routine Timeline -->
+        <div class="section-wrap">
+          <div class="section-header">
+            <div>
+              <h2>Your 24-Hour Daily Performance Protocol</h2>
+              <p>Only displaying products and nutrition guidance relevant to your active schedule.</p>
+            </div>
+          </div>
+          <div class="timeline-grid" id="routine-timeline-grid">
+            <div class="timeline-node">
+              <span class="time-slot-label">07:30 AM &bull; Morning Window</span>
+              <div class="time-slot-action">Cellular Hydration + 5g Creapure®</div>
+              <p class="time-slot-sub">Mix 1 stick Cellular Hydration + 5g Creatine in 600ml cold water upon waking to restore overnight cellular fluid balance.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">04:30 PM &bull; 30-Min Pre-Training</span>
+              <div class="time-slot-action">Clean Focus Pre-Workout</div>
+              <p class="time-slot-sub">Consume 1 scoop Clean Focus in 400ml water 25 minutes prior to warm-up for smooth L-Citrulline nitric oxide vasodilation.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">06:15 PM &bull; Post-Training Window</span>
+              <div class="time-slot-action">Native Whey Isolate Protein</div>
+              <p class="time-slot-sub">Mix 1 scoop Native Whey with 300ml cold water within 60 minutes of session conclusion to trigger leucine-mediated muscle protein synthesis.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">10:00 PM &bull; Evening Recovery</span>
+              <div class="time-slot-action">Deep Recovery Tart Cherry</div>
+              <p class="time-slot-sub">Warm mug of Deep Recovery 30 minutes before sleep to activate GABA receptors, lower core body temp, and down-regulate evening cortisol.</p>
+            </div>
           </div>
         </div>
 
-        <div class="vault-files-grid">
-          <div class="vault-card" onclick="openDocModal('marketintel')">
-            <div class="vault-icon cyan"><i data-lucide="search-check"></i></div>
-            <h4>agent_1_product_intelligence.md</h4>
-            <p>Product & Market Intelligence Specialist with 100-Point Scorecard rubric.</p>
-            <span class="vault-link">View Specification &rarr;</span>
+        <!-- Smart Replenishment Depletion Meter -->
+        <div class="depletion-card">
+          <div class="flex-between">
+            <div>
+              <h3><i data-lucide="hourglass" class="text-mint"></i> Smart Replenishment & Supply Depletion Engine</h3>
+              <p class="text-muted text-xs">Calculated based on 30 servings container &bull; 5 training sessions / week</p>
+            </div>
+            <span class="pill-chip pill-green" id="depletion-status-tag">18 DAYS OF SUPPLY REMAINING</span>
           </div>
 
-          <div class="vault-card" onclick="openDocModal('brandcraft')">
-            <div class="vault-icon pink"><i data-lucide="sparkles"></i></div>
-            <h4>agent_2_brand_content_strategy.md</h4>
-            <p>Brand & Content Director: 70/20/10 ratio, 6 pillars, and 5-part scripts.</p>
-            <span class="vault-link">View Specification &rarr;</span>
+          <div class="depletion-meter-bar">
+            <div class="depletion-meter-fill" id="depletion-progress-bar" style="width: 60%;"></div>
           </div>
 
-          <div class="vault-card" onclick="openDocModal('creative_prod')">
-            <div class="vault-icon yellow"><i data-lucide="clapperboard"></i></div>
-            <h4>agent_3_creative_production.md</h4>
-            <p>Creative Production Director: 15-point schema, 30-day pipeline, and Hook A/B/C engine.</p>
-            <span class="vault-link">View Specification &rarr;</span>
+          <div class="flex-between text-xs text-muted">
+            <span>Last Delivered: Aug 28</span>
+            <span>Current Supply: ~60%</span>
+            <span class="text-mint font-semibold">Estimated Next Auto-Refill: Oct 02</span>
           </div>
 
-          <div class="vault-card" onclick="openDocModal('shopgrowth')">
-            <div class="vault-icon green"><i data-lucide="trending-up"></i></div>
-            <h4>agent_4_tiktok_shop_growth_commercial.md</h4>
-            <p>TikTok Shop Growth & Commercial: 7-stage funnel, 5 triage protocols, and Creator Engine.</p>
-            <span class="vault-link">View Specification &rarr;</span>
+          <div class="flex-center gap-10 mt-16">
+            <button class="btn-xs btn-outline" onclick="simulateUsageStep(-5)"><i data-lucide="minus"></i> -5 Days Simulation</button>
+            <button class="btn-xs btn-outline" onclick="simulateUsageStep(5)"><i data-lucide="plus"></i> +5 Days Simulation</button>
+            <button class="btn-xs btn-outline" onclick="showToast('Shipment skipped by 1 week!')"><i data-lucide="calendar"></i> Skip 1 Week</button>
+            <button class="btn-xs btn-primary" onclick="showToast('1-Click Refill order confirmed!')"><i data-lucide="repeat"></i> Refill Now (15% Off)</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW 5: PERFORMANCE LAB ACADEMY                                  -->
+      <!-- ================================================================ -->
+      <section id="view-academy" class="view-pane">
+        <div class="hero-section" style="padding: 20px 0 30px;">
+          <div class="hero-pill-badge">
+            <i data-lucide="graduation-cap"></i>
+            <span>PERFORMANCE LAB ACADEMY &bull; EVIDENCE-FIRST KNOWLEDGE HUB</span>
+          </div>
+          <h2 class="hero-title">EDUCATION DRIVES PERFORMANCE.</h2>
+          <p class="hero-subtitle">Peer-reviewed sports science, ingredient deconstructions, and practical nutrition protocols.</p>
+        </div>
+
+        <div class="products-grid" id="academy-articles-grid">
+          <!-- Dynamically populated from data.js -->
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW 6: BATCH QUALITY & CoA VERIFICATION                         -->
+      <!-- ================================================================ -->
+      <section id="view-batch-verify" class="view-pane">
+        <div class="batch-search-box">
+          <div class="hero-pill-badge">
+            <i data-lucide="check-check"></i>
+            <span>100% THIRD-PARTY TESTED &bull; ISO-17025 ACCREDITED</span>
+          </div>
+          <h2>Public Batch Certificate of Analysis (CoA) Lookup</h2>
+          <p class="text-secondary text-sm">Enter the batch lot number printed on the bottom of your canister to view certified purity, assay, and heavy metal lab test reports.</p>
+
+          <div class="batch-search-input-wrap">
+            <input type="text" id="batch-search-input" class="form-input-batch" placeholder="Enter Batch ID (e.g. PL-2026-0814-PW)" value="PL-2026-0814-PW">
+            <button class="btn-hero-primary" onclick="lookupBatch()">
+              <i data-lucide="search"></i> Verify Purity
+            </button>
           </div>
 
-          <div class="vault-card" onclick="openDocModal('qaperformance')">
-            <div class="vault-icon green"><i data-lucide="shield-check"></i></div>
-            <h4>agent_5_performance_qa_compliance.md</h4>
-            <p>Performance, QA & Compliance: 9-point pre-flight checklist, WIN/LEARN/KILL triage, VOC engine.</p>
-            <span class="vault-link">View Specification &rarr;</span>
+          <div class="batch-sample-chips">
+            <span class="text-xs text-muted">Quick select sample batches:</span>
+            <button class="chip-btn" onclick="setBatchSearch('PL-2026-0814-PW')">PL-2026-0814-PW (Pre-Workout)</button>
+            <button class="chip-btn" onclick="setBatchSearch('PL-2026-0814-CR')">PL-2026-0814-CR (Creapure® Creatine)</button>
+            <button class="chip-btn" onclick="setBatchSearch('PL-2026-0814-HY')">PL-2026-0814-HY (Hydration Matrix)</button>
+          </div>
+        </div>
+
+        <div class="coa-results-container" id="coa-display-box">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW 7: CREATOR & ATHLETE PORTAL / CRM                           -->
+      <!-- ================================================================ -->
+      <section id="view-creator-portal" class="view-pane">
+        <div class="portal-hero">
+          <div>
+            <div class="hero-pill-badge">
+              <i data-lucide="award"></i>
+              <span>CREATOR & ATHLETE PARTNERSHIP ENGINE</span>
+            </div>
+            <h2>Fit Over Followers &bull; Practitioner Roster</h2>
+            <p>We partner with certified coaches, Hyrox competitors, and sports scientists who train with purpose.</p>
+          </div>
+          <button class="btn-hero-primary" onclick="showToast('Creator Application submitted for review!')">
+            <i data-lucide="user-plus"></i> Apply as Lab Athlete
+          </button>
+        </div>
+
+        <div class="products-grid" id="creators-grid">
+          <!-- Rendered dynamically from data.js -->
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- VIEW 8: OPERATIONS & 6-AGENT AI COMMAND CENTER                   -->
+      <!-- ================================================================ -->
+      <section id="view-operations-hub" class="view-pane">
+        <div class="portal-hero">
+          <div>
+            <div class="hero-pill-badge">
+              <i data-lucide="cpu"></i>
+              <span>6-SPECIALIST AI OPERATING SYSTEM</span>
+            </div>
+            <h2>Performance Lab Executive Operations Center</h2>
+            <p>Daily multi-agent consensus, Monday Executive Review, Unit Economics Waterfall, and VOC Engine.</p>
+          </div>
+          <span class="pill-chip pill-green"><i data-lucide="check-circle"></i> All 6 Agents Synchronized</span>
+        </div>
+
+        <!-- Weekly Executive Review Card -->
+        <div class="depletion-card mb-24">
+          <div class="flex-between mb-12">
+            <div>
+              <h3><i data-lucide="line-chart" class="text-mint"></i> Monday Executive Performance Review</h3>
+              <p class="text-xs text-muted">Aggregated 7-Day Performance & Master Priorities</p>
+            </div>
+            <span class="pill-chip pill-mint">$68,450 GMV &bull; 31.8% Net Contribution Margin</span>
           </div>
 
-          <div class="vault-card" onclick="openDocModal('qa_vault')">
-            <div class="vault-icon cyan"><i data-lucide="file-check"></i></div>
-            <h4>vault_performance_qa_compliance.md</h4>
-            <p>Compliance Rulesets, 30-Video Telemetry Database, and VOC Translation Dossier.</p>
-            <span class="vault-link">View Specification &rarr;</span>
+          <div class="timeline-grid mb-20">
+            <div class="timeline-node">
+              <span class="time-slot-label">P1 &bull; Immediate Action</span>
+              <div class="time-slot-action">Reorder Hydration Raw Minerals</div>
+              <p class="time-slot-sub">Lead time is 4 weeks; current warehouse cover is 3.8 weeks due to Hyrox demand spike.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">P2 &bull; This Week</span>
+              <div class="time-slot-action">Deploy Marcus Rivera Stack Page</div>
+              <p class="time-slot-sub">Launch dedicated Hyrox landing page featuring Marcus's 90-minute intra-race hydration guide.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">P2 &bull; Formulation</span>
+              <div class="time-slot-action">Approve Yuzu Flavor Beta</div>
+              <p class="time-slot-sub">Community taste score averaged 4.92/5 across 120 beta sample testers.</p>
+            </div>
+            <div class="timeline-node">
+              <span class="time-slot-label">P3 &bull; Monitor</span>
+              <div class="time-slot-action">Track Creatine Micronization</div>
+              <p class="time-slot-sub">Monitor Batch PL-2026-0814-CR cold-water dissolution ratings in customer reviews.</p>
+            </div>
           </div>
+        </div>
 
-          <div class="vault-card" onclick="openDocModal('growth_vault')">
-            <div class="vault-icon cyan"><i data-lucide="calculator"></i></div>
-            <h4>vault_tiktok_shop_growth_commercial.md</h4>
-            <p>Funnel Telemetry Benchmarks, Outreach Scripts Vault, and Creator Ledger Scorecard.</p>
-            <span class="vault-link">View Specification &rarr;</span>
-          </div>
-
-          <div class="vault-card" onclick="openDocModal('brand_vault')">
-            <div class="vault-icon blue"><i data-lucide="layers"></i></div>
-            <h4>vault_brand_content_strategy.md</h4>
-            <p>Master Brand Book, 30-Day Content Calendar Matrix, and 5-Part Scripts.</p>
-            <span class="vault-link">View Specification &rarr;</span>
-          </div>
-
-          <div class="vault-card" onclick="openDocModal('creative_vault')">
-            <div class="vault-icon pink"><i data-lucide="video"></i></div>
-            <h4>vault_creative_production.md</h4>
-            <p>30-Day Content Production Pipeline Matrix and High-Retention Script Blueprints.</p>
-            <span class="vault-link">View Specification &rarr;</span>
-          </div>
+        <!-- VOC Voice of Customer Table -->
+        <div class="depletion-card">
+          <h3><i data-lucide="message-square-quote" class="text-cyan"></i> 9-Category Customer Feedback (Voice of Customer)</h3>
+          <div id="voc-feedback-list" class="mt-14"></div>
         </div>
       </section>
 
     </main>
   </div>
 
-  <!-- Document Preview Modal -->
-  <div class="modal-backdrop" id="doc-modal">
-    <div class="modal-dialog">
+  <!-- PDP Product Detail Modal -->
+  <div class="modal-overlay" id="pdp-modal">
+    <div class="modal-container">
       <div class="modal-header">
-        <h3 id="modal-doc-title">Document Title</h3>
-        <button class="modal-close" id="btn-close-modal"><i data-lucide="x"></i></button>
+        <h3 id="pdp-modal-title" style="font-size: 20px; font-weight: 800; color: #fff;">Product Details</h3>
+        <button class="modal-close-btn" onclick="closeModal('pdp-modal')"><i data-lucide="x"></i></button>
       </div>
-      <div class="modal-body" id="modal-doc-content">
-        <!-- Document content rendered here -->
+      <div class="modal-body" id="pdp-modal-content">
+        <!-- Rendered by app.js -->
       </div>
     </div>
   </div>
 
-  <!-- Toast Notification -->
-  <div class="toast" id="toast">
-    <i data-lucide="check-circle-2" class="text-green"></i>
-    <span id="toast-msg">Copied to clipboard!</span>
+  <!-- Article Reader Modal -->
+  <div class="modal-overlay" id="article-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="article-modal-title" style="font-size: 20px; font-weight: 800; color: #fff;">Academy Article</h3>
+        <button class="modal-close-btn" onclick="closeModal('article-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" id="article-modal-content">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
   </div>
 
-  <!-- Application Scripts -->
+  <!-- Cart Modal -->
+  <div class="modal-overlay" id="cart-modal">
+    <div class="modal-container" style="max-width: 540px;">
+      <div class="modal-header">
+        <h3 style="font-size: 18px; font-weight: 800; color: #fff;"><i data-lucide="shopping-bag"></i> Your Performance Cart</h3>
+        <button class="modal-close-btn" onclick="closeModal('cart-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" id="cart-modal-content">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="toast-notice">
+    <i data-lucide="check-circle-2" class="text-mint"></i>
+    <span id="toast-message">Notification message</span>
+  </div>
+
+  <!-- Scripts -->
   <script src="data.js"></script>
   <script src="app.js"></script>
   <script>
